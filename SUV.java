@@ -1,54 +1,75 @@
-import java.util.Scanner;
-
+import java.util.*;
 public class SUV {
-    public void SUVInput(){
+    public static void SUVCS() {
+        System.out.println("1. BS01\t:Basic_Servicing :\t₹ 5,000/-");
+        System.out.println("2. EF01\t:Engine_Fixing\t:\t₹ 10,000/-");
+        System.out.println("3. CF01\t:Clutch_Fixing\t:\t₹ 6,000/-");
+        System.out.println("4. BF01\t:Brake_Fixing\t:\t₹ 2,500/-");
+        System.out.println("5. GF01\t:Gear_Fixing\t:\t₹ 8,000/-");
+        System.out.println();
 
-        System.out.println("For you car we have total 5 types services available as of now.");
-        System.out.println("The list of services is give below...");
-        System.out.println("1.Basic_Servicing. Code: BS01 ,Charge: 5000");
-        System.out.println("2.Engine_Fixing. Code: EF01 ,Charge: 10000");
-        System.out.println("3.Clutch_Fixing. Code: CF01 ,Charge: 6000");
-        System.out.println("4.Brake_Fixing. Code: BF01 ,Charge: 2500");
-        System.out.println("5.Gear_Fixing. Code: GF01 ,Charge: 8000");
-        System.out.println("How many services you want to take?");
-        Scanner cin = new Scanner(System.in);
-        int numberOfServices = cin.nextInt();
-        System.out.println("Give me the code  of all "+ numberOfServices +" services you want to take.");
-        String [] services = new String[numberOfServices];
+        System.out.println("How many services you want?");
+        System.out.println("__________________________");
 
+        Scanner sc = new Scanner(System.in);
+        int howMany = sc.nextInt(); // number of services
+        System.out.println();
+
+        System.out.println("Choose using Service Code OR Service Name");
+        System.out.println("-----------------------------------------");
+
+        String[] numberOfServices = new String[howMany];
+        for(int i=0;i<howMany;i++){
+            numberOfServices[i] = sc.next().toLowerCase(); // taking by service code;
+        }
+        System.out.println();
+
+        // String Array
         int totalAmount = 0;
-        for(int i=0; i<numberOfServices; i++){
-            services[i] = cin.next().toLowerCase();
-            totalAmount+=chargeForGivenSerive(services[i]);
+        for(String x : numberOfServices){
+            totalAmount += spareAmount(x);
         }
-        System.out.println("Original Bill...  @Pappu Car Service Station");
-        for(int i=0; i<numberOfServices; i++){
-            System.out.println(services[i] + " : " + chargeForGivenSerive(services[i]));
+        System.out.println();
+
+        if(totalAmount>=10000){
+            System.out.println("Congratulations! 🎉 You are eligible for FREE CAR Washing.");
+            System.out.println("Your Bill Total Amount is : ");
+            for(String x : numberOfServices){
+                System.out.println(x + "\t:\t" + spareAmount(x));
+            }
+            System.out.println("Total Amt.\t=\t" + totalAmount);
+        }else
+        {
+            System.out.println("Your Bill Total Amount is : ");
+            for(String x : numberOfServices){
+                if(spareAmount(x)==0){
+                    System.err.println(x + "\t:\t" + spareAmount(x) + " (Service Not Available)");
+                }else{
+                    System.out.println(x + "\t:\t" + spareAmount(x));
+                }
+            }
+
+            System.out.println("_________________________");
+            System.out.println("Total Amt.\t=\t" + totalAmount);
         }
-        if(totalAmount >= 10000){
-            System.out.println("Congratulation!🎉 You are eligible for free Car Washing Service.");
-        }
-        System.out.println("Thank you 🙏 for visiting ``Pappu Car Service Station`` please visit again...!");
-        System.out.println("Total Amount: " + totalAmount);
+
+        System.out.println();
+        System.out.println("THANK YOU. 🙏 VISIT AGAIN!");
+        System.out.println("_________xxx_________");
+        System.out.println();
     }
-    public static int chargeForGivenSerive(String typeOfService){
-        int charge = 0;
-        if(typeOfService.equals("basic_servicing") ||typeOfService.equals("bs01") ){
-            charge = 5000;
-        }else if( typeOfService.equals("engine_fixing") ||typeOfService.equals("ef01") ){
-            charge = 10000;
+    public static int spareAmount(String str){
+        if(str.equals("bs01") || str.equals("basic_servicing")){
+            return 5000;
+        }else if(str.equals("ef01") || str.equals("engine_fixing")){
+            return 10000;
+        }else if(str.equals("cf01") || str.equals("clutch_fixing")){
+            return 6000;
+        }else if(str.equals("bf01") || str.equals("brake_fixing")){
+            return 2500;
+        }else if(str.equals("gf01") || str.equals("gear_fixing")){
+            return 8000;
         }
-        else if( typeOfService.equals("clutch_fixing") ||typeOfService.equals("cf01") ){
-            charge =6000;
-        }
-        else if( typeOfService.equals("brake_fixing") ||typeOfService.equals("bf01") ){
-            charge =2500;
-        }
-        else if( typeOfService.equals("gear_fixing") ||typeOfService.equals("gf01") ){
-            charge =8000;
-        }else {
-            System.out.println("As of now we don't have " +  typeOfService  + " for this type of car.");
-        }
-        return charge;
+        return 0;
     }
 }
