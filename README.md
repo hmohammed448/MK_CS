@@ -1,16 +1,25 @@
-# MK_CS
-<b>MK Car Servicing Project</b><br><br>
-Welcome to the Car Servicing Project, a Java-based application designed to streamline car maintenance and servicing. This project provides a user-friendly interface to assist car owners in managing the servicing of their vehicles. With support for three types of cars - Sedan, SUV, and HatchBack - users can easily select their vehicle type, specify the required services, and receive a detailed bill. The system also handles scenarios where specific services or parts may not be available, providing clear messages to the user.
+# MK CAR SERVICE STATION
 
-Key Features
-Car Type Selection: Choose from Sedan, SUV, or HatchBack.
-Service Customization: Specify the required services for your car.
-Detailed Billing: Get a breakdown of the total bill, including individual service costs.
-Service Availability: Receive messages for unavailable services or parts.
-This project showcases Object-Oriented Programming (OOPs) principles, demonstrating the power of Java in creating efficient and user-friendly applications. Feel free to explore the code and contribute to the project's development. We welcome your feedback and collaboration in enhancing this car servicing tool!
+## Project Overview
 
-You can include this paragraph at the top of your README.md file to provide an introduction to your project and highlight its key features. Be sure to customize it further with any additional details, installation instructions, or usage examples specific to your project.
+The "MK CAR SERVICE STATION" is a versatile and user-friendly Java application designed to efficiently manage car servicing requests. It provides services for three types of cars: Sedan, SUV, and Hatchback. The system calculates service costs based on user-selected services and generates a detailed bill. Additionally, it offers an eligibility feature for free car washing if the total bill exceeds a predefined amount.
 
+## Features
 
+- **Menu-Driven Interface:** Easily interact with the system through a user-friendly menu.
+- **Modular Structure:** The project follows a modular approach with separate classes for each car type, ensuring code organization and maintainability.
+- **Service Cost Calculation:** Calculate service costs based on user-selected services, with predefined costs for each service type.
+- **Bill Management:** Efficiently manage billing, including displaying service details, total costs, and eligibility for free car washing.
+- **Error Handling:** Gracefully handle incorrect inputs, providing clear error messages when needed.
+
+## Getting Started
+
+Clone the repository and run the main Java file to start using the "MK CAR SERVICE STATION" application.
+
+```shell
+git clone https://github.com/your-username/mk-car-service-station.git
+cd mk-car-service-station
+javac Main.java
+java Main
 
 
